@@ -14,8 +14,5 @@ const Root = () => (
           <Button secondary >Remove</Button>
       </>
     </ThemeProvider>
-
   </div>
 );
-
-export default Root;
