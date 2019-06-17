@@ -5,11 +5,6 @@ import Button from './Button';
 
 
 
-
-
-
-
-
 storiesOf('Button', module)
     .addDecorator(withKnobs)
     .add('Primary', () => {
