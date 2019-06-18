@@ -10,7 +10,7 @@ const Root = () => (
     <GlobalStyle/>
     <ThemeProvider theme={theme}> 
       <>
-          <Button width=""> Close/Save</Button>
+          <Button> Close/Save</Button>
           <Button secondary >Remove</Button>
       </>
     </ThemeProvider>
