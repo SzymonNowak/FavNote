@@ -1,18 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
 import Button from '../../components/atoms/Button/Button';
-import GlobalStyle from '../../theme/GlobalStyle';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../theme/maintheme';
+import MainTemplate from '../../templates/MainTemplates';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Notes from '../Notes';
+import Articles from '../Articles';
+import Twitters from '../Twitters';
+
 
 const Root = () => (
-  <div className="App">
-    <GlobalStyle/>
-    <ThemeProvider theme={theme}> 
-      <>
-          <Button> Close/Save</Button>
-          <Button secondary >Remove</Button>
-      </>
-    </ThemeProvider>
-  </div>
+  <MainTemplate>
+    <BrowserRouter>
+      <Switch>
+        <Route  exact path="/" component={Notes}/>
+        <Route  exact path="/articles" component={Articles}/>
+        <Route  exact path="/twitters" component={Twitters}/>
+      </Switch>
+
+    
+
+    </BrowserRouter>
+  </MainTemplate>
 );
+
+export default Root;
