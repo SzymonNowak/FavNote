@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../components/atoms/Button/Button';
 import MainTemplate from '../../templates/MainTemplates';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Notes from '../Notes';
