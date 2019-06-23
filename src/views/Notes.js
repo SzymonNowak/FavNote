@@ -1,29 +1,34 @@
 import React from 'react';
 import UserPageTemplate from '../templates/UserPageTemplate';
 import Card from '../components/molecules/Card/Card';
+import GridTemplate from '../templates/GridTemplate';
 
 const notes = [
   {
+    id: 1,
     title: 'aaaaa',
-    content: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    content: 'aaaaaaaaaaaa',
     articleUrl: 'google.com',
     created: '1 day',
   },
   {
+    id: 2,
     title: 'aaaaa',
-    content: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    content: 'aaaaaaaaaaaaaaaaaaaaa',
     articleUrl: 'google.com',
     created: '1 day',
   },
   {
+    id: 3,
     title: 'aaaaa',
-    content: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    content: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
     articleUrl: 'google.com',
     created: '1 day',
   },
   {
+    id: 4,
     title: 'aaaaa',
-    content: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    content: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
     articleUrl: 'google.com',
     created: '1 day',
   },
@@ -35,21 +40,22 @@ const notes = [
   
   
 
-    <UserPageTemplate pageType="note">
+    <GridTemplate pageType="notes">
        {notes.map(item => 
         (
           <Card
-            cardType="note"
+            cardType="notes"
+            id={item.id}
             title={item.title}
             content={item.content}
             created={item.created}
-            key={item.title}
+            key={item.id}
           />
         )
       )
     }
 
-    </UserPageTemplate>
+    </GridTemplate>
   );
   
   export default Notes;
