@@ -1,54 +1,91 @@
 const initialState = {
     twitters: [
-      {
-        id: 1,
-        title: 'Hello Roman',
-        content:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
-        created: '1 day',
-        twitterName: 'hello_roman',
-      },
-      {
-        id: 2,
-        title: 'Redux guy',
-        content:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
-        created: '1 day',
-        twitterName: 'dan_abramov',
-      },
-      {
-        id: 3,
-        title: 'React router stuff',
-        content:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
-        created: '5 days',
-        twitterName: 'mjackson',
-      },
-      {
-        id: 4,
-        title: 'Super animacje!',
-        content:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
-        created: '10 days',
-        twitterName: 'sarah_edo',
-      },
+        {
+          id: 1,
+          title: 'zydow',
+          content: 'aaaaaaaaaaaaaaa',
+          twitterName: 'elonmusk',
+          created: '1 day',
+        },
+        {
+          id: 2,
+          title: 'aaaaa',
+          content: 'aaaaaaaaaaaaaaaaaaa',
+          twitterName: 'elonmusk',
+          created: '1 day',
+        },
+        {
+          id: 3,
+          title: 'aaaaa',
+          content: 'aaaaaaaaaaaaaaaaaa',
+          twitterName: 'elonmusk',
+          created: '1 day',
+        },
+        {
+          id: 4,
+          title: 'aaaaa',
+          content: 'aaaaaaaa',
+          twitterName: 'elonmusk',
+          created: '1 day',
+        },
     ],
     articles: [
       {
         id: 1,
-        title: 'Hello Roman',
-        content:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+        title: 'trtrtrt',
+        content: 'aaaaaaaaaaaaaaaaaaaaaaa',
+        articleUrl: 'google.com',
         created: '1 day',
-        articleUrl: 'https://youtube.com/helloroman',
+      },
+      {
+        id: 2,
+        title: 'aaaaa',
+        content: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        articleUrl: 'google.com',
+        created: '1 day',
+      },
+      {
+        id: 3,
+        title: 'aaaaa',
+        content: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
+        articleUrl: 'google.com',
+        created: '1 day',
+      },
+      {
+        id: 4,
+        title: 'aaaaa',
+        content: 'aaaaaaaaaaa',
+        articleUrl: 'google.com',
+        created: '1 day',
       },
     ],
     notes: [
       {
         id: 1,
-        title: 'Hello Roman',
-        content:
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+        title: 'bieda',
+        content: 'aaaaaaaaaaaa',
+        articleUrl: 'google.com',
+        created: '1 day',
+      },
+      {
+        id: 2,
+        title: 'aaaaa',
+        content: 'aaaaaaaaaaaaaaaaaaaaa',
+        articleUrl: 'google.com',
+        created: '1 day',
+      },
+      {
+        id: 3,
+        title: 'aaaaa',
+        content: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
+        articleUrl: 'google.com',
+        created: '1 day',
+      },
+      {
+        id: 4,
+        title: 'aaaaa',
+        content: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
+        articleUrl: 'google.com',
         created: '1 day',
       },
     ],

@@ -2,39 +2,9 @@ import React from 'react';
 import UserPageTemplate from '../templates/UserPageTemplate';
 import Card from '../components/molecules/Card/Card';
 import GridTemplate from '../templates/GridTemplate';
+import { connect } from 'react-redux';
 
-  const articles = [
-    {
-      id: 1,
-      title: 'aaaaa',
-      content: 'aaaaaaaaaaaaaaaaaaaaaaa',
-      articleUrl: 'google.com',
-      created: '1 day',
-    },
-    {
-      id: 2,
-      title: 'aaaaa',
-      content: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-      articleUrl: 'google.com',
-      created: '1 day',
-    },
-    {
-      id: 3,
-      title: 'aaaaa',
-      content: 'aaaaaaaaaaaaaaaaaaaaaaaaa',
-      articleUrl: 'google.com',
-      created: '1 day',
-    },
-    {
-      id: 4,
-      title: 'aaaaa',
-      content: 'aaaaaaaaaaa',
-      articleUrl: 'google.com',
-      created: '1 day',
-    },
-  ]
-
-const Articles = () => (
+const Articles = ({articles}) => (
     <GridTemplate pageType="articles">
      {articles.map(item => 
         (
@@ -52,5 +22,8 @@ const Articles = () => (
     }
     </GridTemplate>
   );
-
-export default Articles;
+  const mapStateToProps = ({articles}) => {
+    return { articles };
+  };
+    
+ export default connect(mapStateToProps)(Articles);

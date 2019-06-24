@@ -2,37 +2,11 @@ import React from 'react';
 import UserPageTemplate from '../templates/UserPageTemplate';
 import Card from '../components/molecules/Card/Card';
 import GridTemplate from '../templates/GridTemplate';
-const twitters = [
-  {
-    id: 1,
-    title: 'aaaaa',
-    content: 'aaaaaaaaaaaaaaa',
-    twitterName: 'elonmusk',
-    created: '1 day',
-  },
-  {
-    id: 2,
-    title: 'aaaaa',
-    content: 'aaaaaaaaaaaaaaaaaaa',
-    twitterName: 'elonmusk',
-    created: '1 day',
-  },
-  {
-    id: 3,
-    title: 'aaaaa',
-    content: 'aaaaaaaaaaaaaaaaaa',
-    twitterName: 'elonmusk',
-    created: '1 day',
-  },
-  {
-    id: 4,
-    title: 'aaaaa',
-    content: 'aaaaaaaa',
-    twitterName: 'elonmusk',
-    created: '1 day',
-  },
-]
-const Twitters = () => (
+import { connect } from 'react-redux';
+
+
+
+const Twitters = ({twitters}) => (
     <GridTemplate pageType="twitters">
        {twitters.map(item => 
         (
@@ -51,4 +25,8 @@ const Twitters = () => (
     </GridTemplate>
   );
 
-export default Twitters;
+ const mapStateToProps = ({twitters}) => {
+   return { twitters };
+ };
+   
+export default connect(mapStateToProps)(Twitters);
