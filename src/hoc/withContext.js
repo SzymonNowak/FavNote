@@ -1,5 +1,5 @@
 import React from 'react';
-import PageContext from 'context';
+import PageContext from '../context/index';
 
 const withContext = Component => {
   return function contextComponent(props) {

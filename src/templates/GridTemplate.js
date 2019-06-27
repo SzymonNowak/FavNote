@@ -46,7 +46,7 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const GridTemplate = ({ children, pageContext }) => (
-  <UserPageTemplate>
+  <UserPageTemplate pageType={pageContext}>
     <StyledWrapper>
       <StyledPageHeader>
         <Input search placeholder="Search" />

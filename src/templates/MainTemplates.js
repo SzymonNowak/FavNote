@@ -7,7 +7,7 @@ import {withRouter} from 'react-router';
 import PageContext from '../context/index';
 class MainTemplate extends Component {
   state = {
-    pageType: 'notes',
+    pageType: '',
   };
 
   componentDidMount() {
