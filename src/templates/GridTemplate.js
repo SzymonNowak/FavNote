@@ -9,9 +9,11 @@ import ButtonIcon from '../components/atoms/Buttonicon/Buttonicon';
 import withContext from '../hoc/withContext';
 import plusIcon from '../assets/icons/plus.svg';
 import NewItemBar from '../components/organisms/NewItemBar/NewItemBar';
+
+
 const StyledWrapper = styled.div`
-  padding: 25px 150px 25px 70px;
   position: relative;
+  padding: 25px 150px 25px 70px;
 `;
 
 const StyledGrid = styled.div`
@@ -47,31 +49,32 @@ const StyledParagraph = styled(Paragraph)`
 `;
 
 const StyledButtonIcon = styled(ButtonIcon)`
-  background-color: ${({activeColor, theme}) => theme[activeColor] };
-  border-radius: 50px;
-  position:fixed;
-  bottom:40px;
+  position: fixed;
+  bottom: 40px;
   right: 40px;
+  background-color: ${({ activecolor, theme }) => theme[activecolor]};
   background-size: 35%;
-  z-index: 100000;
+  border-radius: 50px;
+  z-index: 10000;
 `;
-
 
 class GridTemplate extends Component {
   state = {
-    isNewItemAvaible : false,
-  }
+    isNewItemBarVisible: false,
+  };
 
-  handleNewItemToggle = () => {
+  toggleNewItemBar = () => {
     this.setState(prevState => ({
-      isNewItemAvaible: !prevState.isNewItemAvaible,
+      isNewItemBarVisible: !prevState.isNewItemBarVisible,
     }));
-  }
+  };
 
   render() {
-    const { children, pageContext } = this.props
+    const { children, pageContext } = this.props;
+    const { isNewItemBarVisible } = this.state;
+
     return (
-        <UserPageTemplate>
+      <UserPageTemplate>
         <StyledWrapper>
           <StyledPageHeader>
             <Input search placeholder="Search" />
@@ -80,17 +83,18 @@ class GridTemplate extends Component {
             </StyledHeading>
             <StyledParagraph>6 {pageContext}</StyledParagraph>
           </StyledPageHeader>
-          <StyledGrid>
-            {children}
-          </StyledGrid>
-          <StyledButtonIcon onClick={this.handleNewItemToggle} icon={plusIcon} activeColor={pageContext}  />
-          <NewItemBar isVisible={this.state.isNewItemAvaible}/>
+          <StyledGrid>{children}</StyledGrid>
+          <StyledButtonIcon
+            onClick={this.toggleNewItemBar}
+            icon={plusIcon}
+            activecolor={pageContext}
+          />
+          <NewItemBar handleClose={this.toggleNewItemBar} isVisible={isNewItemBarVisible} />
         </StyledWrapper>
       </UserPageTemplate>
-    )
+    );
   }
 }
-
 
 GridTemplate.propTypes = {
   children: PropTypes.arrayOf(PropTypes.object).isRequired,

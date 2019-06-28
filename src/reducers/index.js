@@ -94,28 +94,24 @@ const initialState = {
 
 
 
-const rootReducer = (state = initialState, action) => {
-
-  switch(action.type){
-    case('REMOVE_ITEM'):
-      return {
-        ...state,
-        [action.payload.itemType]: [
-          ...state[action.payload.itemType].filter(item => item.id !== action.payload.id)
-        ]
-      }
-      case('ADD_ITEM'):
-      return {
-        ...state,
-        [action.payload.itemType]: [
-          ...state[action.payLoad.itemType],
-          action.payLoad.item,
-        ]
-      }
-
-  }
-    return state;
-}   
-
-
-export default rootReducer;
+  const rootReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case 'ADD_ITEM':
+        return {
+          ...state,
+          [action.payload.itemType]: [...state[action.payload.itemType], action.payload.item],
+        };
+      case 'REMOVE_ITEM':
+        return {
+          ...state,
+          [action.payload.itemType]: [
+            ...state[action.payload.itemType].filter(item => item.id !== action.payload.id),
+          ],
+        };
+      default:
+        return state;
+    }
+  };
+  
+  export default rootReducer;
+  
