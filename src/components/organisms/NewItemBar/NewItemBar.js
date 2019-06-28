@@ -5,6 +5,8 @@ import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import withContext from '../../../hoc/withContext';
 import Heading from '../../atoms/Heading/Heading';
+import {connect} from 'react-redux';
+import { addItem as addItemAction } from '../../../actions/index';
 
 const StyledWrapper = styled.div`
   border-left: 10px solid ${({ theme, activecolor }) => theme[activecolor]};
@@ -19,6 +21,8 @@ const StyledWrapper = styled.div`
   width: 680px;
   background-color: white;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  transform: translate(${({ isVisible }) => (isVisible ? '0' : '100%')});
+  transition: transform 0.25s ease-in-out;
 `;
 
 const StyledTextArea = styled(Input)`
@@ -27,21 +31,47 @@ const StyledTextArea = styled(Input)`
   height: 30vh;
 `;
 
-const NewItemBar = ({ pageContext }) => (
-  <StyledWrapper activecolor={pageContext}>
+const StyledInput = styled(Input)`
+  margin-top: 30px;
+`;
+
+const NewItemBar = ({ pageContext, isVisible, addItem }) => (
+  <StyledWrapper isVisible={isVisible} activecolor={pageContext}>
     <Heading big>Create new {pageContext}</Heading>
-    <Input placeholder="title" />
-    <StyledTextArea as="textarea" placeholder="title" />
-    <Button activecolor={pageContext}>Add Note</Button>
+    <StyledInput placeholder="title" />
+    {pageContext === 'twitters' && <StyledInput placeholder="twitter name eg. elonmusk" />}
+    {pageContext === 'articles' && <StyledInput placeholder="link" />}
+    <StyledTextArea as="textarea" placeholder="description" />
+    <Button
+      onClick={() =>
+        addItem(pageContext, {
+          title: 'Hello Roman',
+          content: 'lorem ipsum dolor sit amet',
+        })
+      }
+      activecolor={pageContext}
+    >
+      Add Note
+    </Button>
   </StyledWrapper>
 );
 
 NewItemBar.propTypes = {
   pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']),
+  isVisible: PropTypes.bool,
+  addItem: PropTypes.func.isRequired,
 };
 
 NewItemBar.defaultProps = {
   pageContext: 'notes',
+  isVisible: false,
 };
 
-export default withContext(NewItemBar);
+const mapDispatchToProps = dispatch => ({
+  addItem: (itemType, itemContent) => dispatch(addItemAction(itemType, itemContent)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(withContext(NewItemBar));

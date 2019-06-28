@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import UserPageTemplate from 'templates/UserPageTemplate';
@@ -53,27 +53,44 @@ const StyledButtonIcon = styled(ButtonIcon)`
   bottom:40px;
   right: 40px;
   background-size: 35%;
+  z-index: 100000;
 `;
 
 
-const GridTemplate = ({ children, pageContext }) => (
-  <UserPageTemplate>
-    <StyledWrapper>
-      <StyledPageHeader>
-        <Input search placeholder="Search" />
-        <StyledHeading big as="h1">
-          {pageContext}
-        </StyledHeading>
-        <StyledParagraph>6 {pageContext}</StyledParagraph>
-      </StyledPageHeader>
-      <StyledGrid>
-        {children}
-      </StyledGrid>
-      <StyledButtonIcon icon={plusIcon} activeColor={pageContext}  />
-      <NewItemBar/>
-    </StyledWrapper>
-  </UserPageTemplate>
-);
+class GridTemplate extends Component {
+  state = {
+    isNewItemAvaible : false,
+  }
+
+  handleNewItemToggle = () => {
+    this.setState(prevState => ({
+      isNewItemAvaible: !prevState.isNewItemAvaible,
+    }));
+  }
+
+  render() {
+    const { children, pageContext } = this.props
+    return (
+        <UserPageTemplate>
+        <StyledWrapper>
+          <StyledPageHeader>
+            <Input search placeholder="Search" />
+            <StyledHeading big as="h1">
+              {pageContext}
+            </StyledHeading>
+            <StyledParagraph>6 {pageContext}</StyledParagraph>
+          </StyledPageHeader>
+          <StyledGrid>
+            {children}
+          </StyledGrid>
+          <StyledButtonIcon onClick={this.handleNewItemToggle} icon={plusIcon} activeColor={pageContext}  />
+          <NewItemBar isVisible={this.state.isNewItemAvaible}/>
+        </StyledWrapper>
+      </UserPageTemplate>
+    )
+  }
+}
+
 
 GridTemplate.propTypes = {
   children: PropTypes.arrayOf(PropTypes.object).isRequired,
